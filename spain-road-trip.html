@@ -141,6 +141,24 @@
   .tag.party{background:rgba(199,91,57,.16);color:#9c3d20}
   .tag.must{background:rgba(235,163,35,.2);color:#9a6a05}
 
+  /* ---------- LINKS ---------- */
+  a.tag{text-decoration:none;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, filter .15s ease}
+  a.tag::after{content:"↗";font-size:9px;margin-left:5px;opacity:.55}
+  a.tag:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(11,42,51,.14);filter:saturate(1.12)}
+  .stop p a, .note p a{
+    color:var(--turq);text-decoration:none;
+    border-bottom:1px solid rgba(31,166,160,.45);
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .stop p a b{color:inherit;font-weight:600}
+  .stop p a:hover, .note p a:hover{color:#0d6b66;border-bottom-color:var(--turq)}
+  .cell li a{color:var(--turq-bright);text-decoration:none;
+    border-bottom:1px solid transparent;transition:border-color .15s ease}
+  .cell li a:hover{border-bottom-color:var(--turq-bright)}
+  .cell li a b{color:inherit}
+  a:focus-visible{outline:2px solid var(--turq-bright);outline-offset:2px;border-radius:3px}
+
   /* ---------- REFERENCE GRID ---------- */
   .ref{background:var(--ink);color:var(--sand)}
   .ref .sec-head h2{color:var(--sand)}
@@ -221,16 +239,16 @@
         <div class="node">7</div>
         <h3>Alicante</h3>
         <div class="kind">Júl 7 · base: Alicante · pick up the car</div>
-        <p>Ease in with the hilltop Castillo de Santa Bárbara for the view, then the old-town bars. A solid first beach before you head south. <b style="color:var(--clay)">Tip: you don't leave until the 9th — pick the car up then and take the TRAM Line 1 to Benidorm, saving two rental days.</b></p>
-        <div class="tags"><span class="tag beach">Playa del Postiguet</span><span class="tag party">El Barrio bars</span><span class="tag must">Santa Bárbara castle</span></div>
+        <p>Ease in with the hilltop <a href="https://www.google.com/maps/search/?api=1&query=Castillo+de+Santa+B%C3%A1rbara+Alicante"><b>Castillo de Santa Bárbara</b></a> for the view, then the old-town bars. A solid first beach before you head south. <b style="color:var(--clay)">Tip: you don't leave until the 9th — pick the car up then and take the TRAM Line 1 to Benidorm, saving two rental days.</b></p>
+        <div class="tags"><a class="tag beach" href="https://www.google.com/maps/search/?api=1&query=Playa+del+Postiguet+Alicante">Playa del Postiguet</a><a class="tag party" href="https://www.google.com/maps/search/?api=1&query=El+Barrio+Alicante+bars">El Barrio bars</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Castillo+de+Santa+B%C3%A1rbara+Alicante">Santa Bárbara castle</a></div>
       </article>
 
       <article class="stop">
         <div class="node">8</div>
         <h3>Benidorm + környék</h3>
         <div class="kind">Júl 8 · base: Alicante · day trip</div>
-        <p>Benidorm's Levante &amp; Poniente beaches and the coast's biggest party night if you want one blowout. Nearby add-ons: Altea (white town, 15 min), Calpe's Peñón de Ifach rock, and Guadalest — a mountain village over a turquoise reservoir.</p>
-        <div class="tags"><span class="tag beach">Playa de Levante</span><span class="tag party">Benidorm nightlife</span><span class="tag must">Altea · Guadalest</span></div>
+        <p>Benidorm's Levante &amp; Poniente beaches and the coast's biggest party night if you want one blowout. Nearby add-ons: <a href="https://www.google.com/maps/search/?api=1&query=Altea+Alicante"><b>Altea</b></a> (white town, 15 min), Calpe's <a href="https://www.google.com/maps/search/?api=1&query=Pe%C3%B1%C3%B3n+de+Ifach+Calpe"><b>Peñón de Ifach</b></a> rock, and <a href="https://www.google.com/maps/search/?api=1&query=Guadalest+Alicante"><b>Guadalest</b></a> — a mountain village over a turquoise reservoir.</p>
+        <div class="tags"><a class="tag beach" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Levante+Benidorm">Playa de Levante</a><a class="tag party" href="https://www.google.com/maps/search/?api=1&query=Benidorm+nightlife">Benidorm nightlife</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Altea+Alicante">Altea · Guadalest</a></div>
       </article>
 
       <article class="stop">
@@ -238,8 +256,8 @@
         <div class="node">9</div>
         <h3>Alicante → Almería</h3>
         <div class="kind">Júl 9 · drive south · base: Almería</div>
-        <p>Break the drive at <b>Cartagena</b> for its preserved 2,000-year-old Roman theatre (great lunch stop — closed Mondays, but the 9th is a Thursday). Arrive Almería for its big Moorish Alcazaba and old town.</p>
-        <div class="tags"><span class="tag must">Cartagena Roman Theatre</span><span class="tag must">Almería Alcazaba</span></div>
+        <p>Break the drive at <a href="https://www.google.com/maps/search/?api=1&query=Cartagena+Murcia"><b>Cartagena</b></a> for its preserved 2,000-year-old <a href="https://www.teatroromanocartagena.org/"><b>Roman theatre</b></a> (great lunch stop — closed Mondays, but the 9th is a Thursday). Arrive Almería for its big Moorish <a href="https://www.google.com/maps/search/?api=1&query=Alcazaba+de+Almer%C3%ADa"><b>Alcazaba</b></a> and old town.</p>
+        <div class="tags"><a class="tag must" href="https://www.teatroromanocartagena.org/">Cartagena Roman Theatre</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Alcazaba+de+Almer%C3%ADa">Almería Alcazaba</a></div>
       </article>
 
       <article class="stop">
@@ -247,8 +265,8 @@
         <div class="node">10</div>
         <h3>Almería → Málaga</h3>
         <div class="kind">Júl 10 · drive west · base: Málaga</div>
-        <p>Morning at <b>Cabo de Gata</b> — the wild desert coves (Mónsul, Los Genoveses) before heading off. <b>Nerja</b> (Balcón de Europa, Playa Burriana) and the white village of <b>Frigiliana</b> sit right on the route. Arrive Málaga to meet Mark.</p>
-        <div class="tags"><span class="tag beach">Playa de Mónsul</span><span class="tag beach">Playa Burriana</span><span class="tag must">Frigiliana</span></div>
+        <p>Morning at <a href="https://www.google.com/maps/search/?api=1&query=Cabo+de+Gata+Almer%C3%ADa"><b>Cabo de Gata</b></a> — the wild desert coves (<a href="https://www.google.com/maps/search/?api=1&query=Playa+de+M%C3%B3nsul+Cabo+de+Gata">Mónsul</a>, <a href="https://www.google.com/maps/search/?api=1&query=Playa+de+los+Genoveses+Cabo+de+Gata">Los Genoveses</a>) before heading off. <a href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa+Nerja"><b>Nerja</b></a> (Balcón de Europa, Playa Burriana) and the white village of <a href="https://www.google.com/maps/search/?api=1&query=Frigiliana+M%C3%A1laga"><b>Frigiliana</b></a> sit right on the route. Arrive Málaga to meet Mark.</p>
+        <div class="tags"><a class="tag beach" href="https://www.google.com/maps/search/?api=1&query=Playa+de+M%C3%B3nsul+Cabo+de+Gata">Playa de Mónsul</a><a class="tag beach" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Burriana+Nerja">Playa Burriana</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Frigiliana+M%C3%A1laga">Frigiliana</a></div>
       </article>
 
       <article class="stop">
@@ -256,8 +274,8 @@
         <div class="node">11</div>
         <h3>Marbella</h3>
         <div class="kind">Júl 11 · day trip from Málaga</div>
-        <p>Marbella old town, the Puerto Banús marina, beach clubs and the loudest nightlife on the route — a good first night out with Mark.</p>
-        <div class="tags"><span class="tag party">Puerto Banús clubs</span><span class="tag beach">Marbella beaches</span></div>
+        <p>Marbella old town, the <a href="https://www.google.com/maps/search/?api=1&query=Puerto+Ban%C3%BAs+Marbella"><b>Puerto Banús</b></a> marina, beach clubs and the loudest nightlife on the route — a good first night out with Mark.</p>
+        <div class="tags"><a class="tag party" href="https://www.google.com/maps/search/?api=1&query=Puerto+Ban%C3%BAs+nightclubs">Puerto Banús clubs</a><a class="tag beach" href="https://www.google.com/maps/search/?api=1&query=Playa+de+Marbella">Marbella beaches</a></div>
       </article>
 
       <article class="stop">
@@ -265,8 +283,8 @@
         <div class="node">12</div>
         <h3>Granada</h3>
         <div class="kind">Júl 12 · the Alhambra day</div>
-        <p>The single best thing on the trip. Plus the Albaicín quarter and Sacromonte. <b style="color:var(--clay)">Book Nasrid Palace tickets now — timed entry, sells out.</b> Choice: sleep in Granada and drive back on the 13th, or day-trip from Málaga (~3h round trip).</p>
-        <div class="tags"><span class="tag must">Alhambra</span><span class="tag must">Albaicín</span><span class="tag must">Sacromonte</span></div>
+        <p>The single best thing on the trip. Plus the <a href="https://www.google.com/maps/search/?api=1&query=Albaic%C3%ADn+Granada"><b>Albaicín</b></a> quarter and <a href="https://www.google.com/maps/search/?api=1&query=Sacromonte+Granada"><b>Sacromonte</b></a>. <b style="color:var(--clay)">Book <a href="https://tickets.alhambra-patronato.es/en/" style="color:inherit">Nasrid Palace tickets</a> now — timed entry, sells out.</b> Choice: sleep in Granada and drive back on the 13th, or day-trip from Málaga (~3h round trip).</p>
+        <div class="tags"><a class="tag must" href="https://tickets.alhambra-patronato.es/en/">Alhambra</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Albaic%C3%ADn+Granada">Albaicín</a><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Sacromonte+Granada">Sacromonte</a></div>
       </article>
 
       <article class="stop endpoint">
@@ -274,8 +292,8 @@
         <div class="node">13</div>
         <h3>Málaga</h3>
         <div class="kind">Júl 13 · esti repülő → Budapest</div>
-        <p>If you stayed in Granada, drive back in the morning. Then Málaga old town — Alcazaba, Picasso Museum, a last lunch — drop the car and fly out in the evening.</p>
-        <div class="tags"><span class="tag must">Alcazaba</span><span class="tag must">Picasso Museum</span><span class="tag party">Soho / port</span></div>
+        <p>If you stayed in Granada, drive back in the morning. Then Málaga old town — <a href="https://www.google.com/maps/search/?api=1&query=Alcazaba+de+M%C3%A1laga"><b>Alcazaba</b></a>, <a href="https://www.museopicassomalaga.org/en"><b>Picasso Museum</b></a>, a last lunch — drop the car and fly out in the evening.</p>
+        <div class="tags"><a class="tag must" href="https://www.google.com/maps/search/?api=1&query=Alcazaba+de+M%C3%A1laga">Alcazaba</a><a class="tag must" href="https://www.museopicassomalaga.org/en">Picasso Museum</a><a class="tag party" href="https://www.google.com/maps/search/?api=1&query=Soho+M%C3%A1laga+nightlife">Soho / port</a></div>
       </article>
 
     </div>
@@ -290,30 +308,30 @@
       <div class="cell">
         <h4>◍ Beaches</h4>
         <ul>
-          <li><b>Playa de Mónsul</b> — Cabo de Gata<span>The famous golden cove. Wild, no facilities.</span></li>
-          <li><b>Los Genoveses</b> — Cabo de Gata<span>Long, calm, undeveloped bay.</span></li>
-          <li><b>Playa Burriana</b> — Nerja<span>Best beach on the coast stretch, with beach bars.</span></li>
-          <li><b>Playa del Postiguet</b> — Alicante<span>Easy city beach to start the trip.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Playa+de+M%C3%B3nsul+Cabo+de+Gata"><b>Playa de Mónsul</b></a> — Cabo de Gata<span>The famous golden cove. Wild, no facilities.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Playa+de+los+Genoveses+Cabo+de+Gata"><b>Los Genoveses</b></a> — Cabo de Gata<span>Long, calm, undeveloped bay.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Playa+de+Burriana+Nerja"><b>Playa Burriana</b></a> — Nerja<span>Best beach on the coast stretch, with beach bars.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Playa+del+Postiguet+Alicante"><b>Playa del Postiguet</b></a> — Alicante<span>Easy city beach to start the trip.</span></li>
         </ul>
       </div>
 
       <div class="cell">
         <h4>◍ Party spots</h4>
         <ul>
-          <li><b>Puerto Banús / Marbella</b><span>The glitzy one — marina & beach clubs.</span></li>
-          <li><b>El Barrio</b> — Alicante<span>Old-town streets, wall-to-wall bars.</span></li>
-          <li><b>Soho & the port</b> — Málaga<span>Good scene for the final night.</span></li>
-          <li><b>Benidorm</b> — 45 min off-route<span>The coast's party capital, if you want one blowout.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Puerto+Ban%C3%BAs+nightclubs"><b>Puerto Banús / Marbella</b></a><span>The glitzy one — marina & beach clubs.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=El+Barrio+Alicante+bars"><b>El Barrio</b></a> — Alicante<span>Old-town streets, wall-to-wall bars.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Soho+M%C3%A1laga+nightlife"><b>Soho & the port</b></a> — Málaga<span>Good scene for the final night.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Benidorm+nightlife"><b>Benidorm</b></a> — 45 min off-route<span>The coast's party capital, if you want one blowout.</span></li>
         </ul>
       </div>
 
       <div class="cell">
         <h4>◍ Must-visit</h4>
         <ul>
-          <li><b>Alhambra</b> — Granada<span>The standout. Book Nasrid Palace tickets early.</span></li>
-          <li><b>Roman Theatre</b> — Cartagena<span>2,000 years old. Closed Mondays.</span></li>
-          <li><b>Frigiliana</b> — above Nerja<span>The prettiest white hill village.</span></li>
-          <li><b>Old town & Alcazaba</b> — Málaga<span>Moorish fortress + Picasso, a great finish.</span></li>
+          <li><a href="https://tickets.alhambra-patronato.es/en/"><b>Alhambra</b></a> — Granada<span>The standout. Book Nasrid Palace tickets early.</span></li>
+          <li><a href="https://www.teatroromanocartagena.org/"><b>Roman Theatre</b></a> — Cartagena<span>2,000 years old. Closed Mondays.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Frigiliana+M%C3%A1laga"><b>Frigiliana</b></a> — above Nerja<span>The prettiest white hill village.</span></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Alcazaba+de+M%C3%A1laga"><b>Old town & Alcazaba</b></a> — Málaga<span>Moorish fortress + Picasso, a great finish.</span></li>
         </ul>
       </div>
 
@@ -322,7 +340,7 @@
         <ul>
           <li><b>One-way rental</b><span>Pick up Alicante, drop Málaga — different regions, so expect a drop-off fee.</span></li>
           <li><b>July is peak</b><span>Rental prices run well above average — book early.</span></li>
-          <li><b>Alhambra tickets</b><span>Timed entry, sells out. Lock these in first.</span></li>
+          <li><a href="https://tickets.alhambra-patronato.es/en/"><b>Alhambra tickets</b></a><span>Timed entry, sells out. Lock these in first.</span></li>
           <li><b>Driving is light</b><span>~6h total over 7 days — lots of slack to linger.</span></li>
         </ul>
       </div>
@@ -337,7 +355,7 @@
     <div class="note">
       <h4>Targeting €200–300 total</h4>
       <p>Doable, but tight. July is the most expensive month to rent in Alicante (economy ~€25–30/day), and the one-way drop fee adds roughly <b>€100–150</b>. Realistic total for 6 days lands around <b>€250–330</b>.</p>
-      <p>To stay near the bottom: book <b>now</b>, take an <b>economy/compact manual</b>, and choose the <b>all-inclusive / no-excess</b> rate to avoid big deposit holds. Compare on Rentalcars.com or AutoEurope; Goldcar, Malco, Wiber and Enterprise all run the Alicante→Málaga route.</p>
+      <p>To stay near the bottom: book <b>now</b>, take an <b>economy/compact manual</b>, and choose the <b>all-inclusive / no-excess</b> rate to avoid big deposit holds. Compare on <a href="https://www.rentalcars.com/">Rentalcars.com</a> or <a href="https://www.autoeurope.com/">AutoEurope</a>; Goldcar, Malco, Wiber and Enterprise all run the Alicante→Málaga route.</p>
       <p style="font-size:13.5px;color:var(--muted)">Tip: if a cheap return-to-Alicante deal exists, a loop can sometimes beat the one-way fee — worth a quick price check.</p>
       <div class="pill-row">
         <span class="pill">Economy manual</span>
@@ -363,6 +381,11 @@
     });
   },{threshold:.15});
   document.querySelectorAll('.stop').forEach(el=>obs.observe(el));
+
+  // Open every external link in a new tab, safely.
+  document.querySelectorAll('a[href^="http"]').forEach(a=>{
+    a.target='_blank'; a.rel='noopener noreferrer';
+  });
 </script>
 
 </body>
