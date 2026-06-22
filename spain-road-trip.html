@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alicante → Málaga · Road Trip</title>
+<meta name="description" content="A 7-day coastal road trip down the south of Spain, July 7–13.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2A33;          /* deep sea teal */
+    --ink-2:#103a45;
+    --sand:#F3ECDD;         /* warm limestone */
+    --sand-deep:#E7DCC6;
+    --turq:#1FA6A0;         /* mediterranean turquoise */
+    --turq-bright:#3CC8BE;
+    --sun:#EBA323;          /* saffron / sun */
+    --clay:#C75B39;         /* terracotta, used sparingly */
+    --text:#15282D;
+    --muted:#5e6f6f;
+    --line:rgba(15,40,48,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text);
+    background:var(--sand);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(120% 90% at 80% -10%, rgba(235,163,35,.22), transparent 55%),
+      radial-gradient(100% 80% at 0% 110%, rgba(31,166,160,.30), transparent 60%),
+      var(--ink);
+    color:var(--sand);
+    padding:74px 0 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--sun);
+    display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--sun);display:inline-block}
+  h1{
+    font-family:'Instrument Serif',serif;
+    font-weight:400;
+    font-size:clamp(48px,9vw,92px);
+    line-height:.98;
+    letter-spacing:-.01em;
+    margin:22px 0 6px;
+  }
+  h1 .arrow{color:var(--turq-bright);font-style:italic}
+  .sub{
+    font-size:clamp(16px,2.4vw,19px);
+    color:rgba(243,236,221,.78);
+    max-width:46ch;
+    margin-top:14px;
+  }
+  .facts{
+    display:flex;flex-wrap:wrap;gap:36px;margin-top:38px;
+  }
+  .fact .n{
+    font-family:'Instrument Serif',serif;font-size:34px;line-height:1;
+    color:var(--sand);
+  }
+  .fact .l{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;
+    text-transform:uppercase;color:rgba(243,236,221,.6);margin-top:7px;
+  }
+  .maps-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    margin-top:40px;
+    background:var(--sun);color:var(--ink);
+    font-weight:600;font-size:15px;
+    padding:14px 22px;border-radius:50px;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 8px 24px rgba(235,163,35,.28);
+  }
+  .maps-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(235,163,35,.4)}
+  .maps-btn svg{width:18px;height:18px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:60px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:36px}
+  .sec-num{
+    font-family:'Space Mono',monospace;font-size:13px;color:var(--turq);
+    font-weight:700;letter-spacing:.1em;
+  }
+  .sec-head h2{
+    font-family:'Instrument Serif',serif;font-weight:400;
+    font-size:clamp(30px,5vw,44px);line-height:1;letter-spacing:-.01em;
+  }
+
+  /* ---------- ROUTE TIMELINE (signature) ---------- */
+  .route{position:relative;padding-left:42px}
+  .route::before{
+    content:"";position:absolute;left:13px;top:8px;bottom:46px;width:3px;
+    background:repeating-linear-gradient(var(--turq) 0 14px, transparent 14px 26px);
+    border-radius:2px;
+  }
+  .stop{position:relative;padding-bottom:34px;opacity:0;transform:translateY(16px);
+    transition:opacity .6s ease, transform .6s ease}
+  .stop.in{opacity:1;transform:none}
+  .stop .node{
+    position:absolute;left:-42px;top:2px;width:30px;height:30px;border-radius:50%;
+    background:var(--sand);border:3px solid var(--turq);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--ink);
+    z-index:2;
+  }
+  .stop.endpoint .node{background:var(--sun);border-color:var(--sun)}
+  .stop .leg{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;
+    color:var(--clay);text-transform:uppercase;margin-bottom:5px;
+  }
+  .stop h3{
+    font-family:'Instrument Serif',serif;font-weight:400;font-size:27px;line-height:1.05;
+  }
+  .stop .kind{
+    font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--turq);margin:3px 0 9px;
+  }
+  .stop p{color:var(--muted);font-size:15.5px;max-width:60ch}
+  .tags{margin-top:11px;display:flex;flex-wrap:wrap;gap:7px}
+  .tag{
+    font-size:12px;font-weight:600;padding:5px 11px;border-radius:50px;
+    background:var(--sand-deep);color:var(--ink-2);
+  }
+  .tag.beach{background:rgba(31,166,160,.16);color:#0d6b66}
+  .tag.party{background:rgba(199,91,57,.16);color:#9c3d20}
+  .tag.must{background:rgba(235,163,35,.2);color:#9a6a05}
+
+  /* ---------- REFERENCE GRID ---------- */
+  .ref{background:var(--ink);color:var(--sand)}
+  .ref .sec-head h2{color:var(--sand)}
+  .ref .sec-num{color:var(--sun)}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(243,236,221,.14);
+    border:1px solid rgba(243,236,221,.14);border-radius:14px;overflow:hidden}
+  .cell{background:var(--ink);padding:26px 24px}
+  .cell h4{
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--sun);margin-bottom:14px;display:flex;gap:9px;align-items:center;
+  }
+  .cell ul{list-style:none}
+  .cell li{padding:7px 0;border-bottom:1px solid rgba(243,236,221,.09);font-size:15px}
+  .cell li:last-child{border-bottom:none}
+  .cell li b{color:var(--turq-bright);font-weight:600}
+  .cell li span{color:rgba(243,236,221,.62);font-size:13.5px;display:block;margin-top:1px}
+
+  /* ---------- CAR NOTE ---------- */
+  .note{
+    background:var(--sand-deep);border-left:4px solid var(--sun);
+    border-radius:0 12px 12px 0;padding:26px 28px;
+  }
+  .note h4{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--clay);margin-bottom:12px}
+  .note p{font-size:15px;color:var(--text);margin-bottom:10px}
+  .note p:last-child{margin-bottom:0}
+  .note b{color:var(--ink)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .pill{font-family:'Space Mono',monospace;font-size:12px;background:var(--sand);
+    border:1px solid var(--line);padding:6px 12px;border-radius:50px}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink-2);color:rgba(243,236,221,.6);padding:34px 0;
+    font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;text-align:center}
+  footer .route-mini{color:var(--turq-bright)}
+
+  @media(max-width:640px){
+    .grid{grid-template-columns:1fr}
+    .facts{gap:26px}
+    section{padding:46px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .stop{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Road trip · 07–13 July</div>
+    <h1>Alicante <span class="arrow">→</span> Málaga</h1>
+    <p class="sub">A slow sweep down Spain's south coast — Costa Blanca into Andalusia. Roman ports, desert coves, a Moorish palace, and the right beaches in between.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n">7</div><div class="l">days</div></div>
+      <div class="fact"><div class="n">7</div><div class="l">stops</div></div>
+      <div class="fact"><div class="n">~600<span style="font-size:16px"> km</span></div><div class="l">driving</div></div>
+      <div class="fact"><div class="n">~6<span style="font-size:16px"> h</span></div><div class="l">wheel time</div></div>
+    </div>
+
+    <a class="maps-btn" target="_blank" rel="noopener"
+       href="https://www.google.com/maps/dir/Alicante,+Spain/Cartagena,+Murcia/Cabo+de+Gata,+Almer%C3%ADa/Granada,+Spain/Nerja,+M%C3%A1laga/Marbella,+M%C3%A1laga/M%C3%A1laga,+Spain">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      Open full route in Google Maps
+    </a>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><h2>The route</h2></div>
+
+    <div class="route" id="route">
+
+      <article class="stop endpoint">
+        <div class="node">A</div>
+        <h3>Alicante</h3>
+        <div class="kind">Start · land & pick up the car</div>
+        <p>Ease in with the hilltop Castillo de Santa Bárbara for the view, then the old-town bars. A solid first beach before you head south.</p>
+        <div class="tags"><span class="tag beach">Playa del Postiguet</span><span class="tag party">El Barrio bars</span><span class="tag must">Santa Bárbara castle</span></div>
+      </article>
+
+      <article class="stop">
+        <div class="leg">↓ ~1h15 south</div>
+        <div class="node">1</div>
+        <h3>Cartagena</h3>
+        <div class="kind">Roman port city</div>
+        <p>A beautifully preserved 2,000-year-old Roman theatre sits in the middle of a lively naval harbour town. Easy half-day stop. <b style="color:var(--clay)">Theatre closed Mondays.</b></p>
+        <div class="tags"><span class="tag must">Roman Theatre</span></div>
+      </article>
+
+      <article class="stop">
+        <div class="leg">↓ ~2h30 south-west</div>
+        <div class="node">2</div>
+        <h3>Cabo de Gata</h3>
+        <div class="kind">Volcanic coast · Almería</div>
+        <p>The wild card and the highlight for beaches — a desert national park with the most undeveloped coves in Spain. No facilities at the best ones, so bring shade and water.</p>
+        <div class="tags"><span class="tag beach">Playa de Mónsul</span><span class="tag beach">Los Genoveses</span></div>
+      </article>
+
+      <article class="stop">
+        <div class="leg">↓ ~1h45 inland</div>
+        <div class="node">3</div>
+        <h3>Granada</h3>
+        <div class="kind">The one inland detour</div>
+        <p>Worth leaving the coast for. The Alhambra is the single best thing on the whole trip. <b style="color:var(--clay)">Book Nasrid Palace tickets weeks ahead — timed entry is mandatory and sells out.</b></p>
+        <div class="tags"><span class="tag must">Alhambra</span><span class="tag must">Albaicín quarter</span></div>
+      </article>
+
+      <article class="stop">
+        <div class="leg">↓ ~1h30 back to the coast</div>
+        <div class="node">4</div>
+        <h3>Nerja & Frigiliana</h3>
+        <div class="kind">Clifftop town + white village</div>
+        <p>Nerja's Balcón de Europa promenade and the best beach on the stretch, Playa Burriana. Ten minutes uphill, Frigiliana is Andalusia's prettiest whitewashed village.</p>
+        <div class="tags"><span class="tag beach">Playa Burriana</span><span class="tag must">Frigiliana</span><span class="tag must">Balcón de Europa</span></div>
+      </article>
+
+      <article class="stop">
+        <div class="leg">↓ ~1h15 west</div>
+        <div class="node">5</div>
+        <h3>Marbella & Puerto Banús</h3>
+        <div class="kind">The glitzy night</div>
+        <p>Marina, beach clubs, and the loudest nightlife on the route. Developed beaches, later and pricier scene — the place to spend one big night.</p>
+        <div class="tags"><span class="tag party">Puerto Banús clubs</span><span class="tag beach">Marbella beaches</span></div>
+      </article>
+
+      <article class="stop endpoint">
+        <div class="leg">↓ ~40 min west</div>
+        <div class="node">B</div>
+        <h3>Málaga</h3>
+        <div class="kind">Finish · drop the car & fly out</div>
+        <p>Drop the car, explore the old town, the Alcazaba fortress and Picasso's birthplace. Soho district and the port for a final night out.</p>
+        <div class="tags"><span class="tag must">Alcazaba</span><span class="tag must">Picasso Museum</span><span class="tag party">Soho / port</span></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="ref">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>Quick reference</h2></div>
+    <div class="grid">
+
+      <div class="cell">
+        <h4>◍ Beaches</h4>
+        <ul>
+          <li><b>Playa de Mónsul</b> — Cabo de Gata<span>The famous golden cove. Wild, no facilities.</span></li>
+          <li><b>Los Genoveses</b> — Cabo de Gata<span>Long, calm, undeveloped bay.</span></li>
+          <li><b>Playa Burriana</b> — Nerja<span>Best beach on the coast stretch, with beach bars.</span></li>
+          <li><b>Playa del Postiguet</b> — Alicante<span>Easy city beach to start the trip.</span></li>
+        </ul>
+      </div>
+
+      <div class="cell">
+        <h4>◍ Party spots</h4>
+        <ul>
+          <li><b>Puerto Banús / Marbella</b><span>The glitzy one — marina & beach clubs.</span></li>
+          <li><b>El Barrio</b> — Alicante<span>Old-town streets, wall-to-wall bars.</span></li>
+          <li><b>Soho & the port</b> — Málaga<span>Good scene for the final night.</span></li>
+          <li><b>Benidorm</b> — 45 min off-route<span>The coast's party capital, if you want one blowout.</span></li>
+        </ul>
+      </div>
+
+      <div class="cell">
+        <h4>◍ Must-visit</h4>
+        <ul>
+          <li><b>Alhambra</b> — Granada<span>The standout. Book Nasrid Palace tickets early.</span></li>
+          <li><b>Roman Theatre</b> — Cartagena<span>2,000 years old. Closed Mondays.</span></li>
+          <li><b>Frigiliana</b> — above Nerja<span>The prettiest white hill village.</span></li>
+          <li><b>Old town & Alcazaba</b> — Málaga<span>Moorish fortress + Picasso, a great finish.</span></li>
+        </ul>
+      </div>
+
+      <div class="cell">
+        <h4>◍ Need to know</h4>
+        <ul>
+          <li><b>One-way rental</b><span>Pick up Alicante, drop Málaga — different regions, so expect a drop-off fee.</span></li>
+          <li><b>July is peak</b><span>Rental prices run well above average — book early.</span></li>
+          <li><b>Alhambra tickets</b><span>Timed entry, sells out. Lock these in first.</span></li>
+          <li><b>Driving is light</b><span>~6h total over 7 days — lots of slack to linger.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><h2>The car</h2></div>
+    <div class="note">
+      <h4>Targeting €200–300 total</h4>
+      <p>Doable, but tight. July is the most expensive month to rent in Alicante (economy ~€25–30/day), and the one-way drop fee adds roughly <b>€100–150</b>. Realistic total for 6 days lands around <b>€250–330</b>.</p>
+      <p>To stay near the bottom: book <b>now</b>, take an <b>economy/compact manual</b>, and choose the <b>all-inclusive / no-excess</b> rate to avoid big deposit holds. Compare on Rentalcars.com or AutoEurope; Goldcar, Malco, Wiber and Enterprise all run the Alicante→Málaga route.</p>
+      <p style="font-size:13.5px;color:var(--muted)">Tip: if a cheap return-to-Alicante deal exists, a loop can sometimes beat the one-way fee — worth a quick price check.</p>
+      <div class="pill-row">
+        <span class="pill">Economy manual</span>
+        <span class="pill">All-inclusive insurance</span>
+        <span class="pill">Book ≥2 weeks out</span>
+        <span class="pill">Airport pickup</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="route-mini">Alicante · Cartagena · Cabo de Gata · Granada · Nerja · Marbella · Málaga</div>
+    <div style="margin-top:8px">7-day Spain road trip · 07–13 July</div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.stop').forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
